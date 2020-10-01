@@ -1,6 +1,6 @@
 # BandFocus
 
-Building a small social network for musicians with Node.js, Express, React, Redux & MongoDB.
+Building a small social network for musicians with MERN stack (Node.js, Express, React, Redux & MongoDB).
 
 ## **Details**
 
