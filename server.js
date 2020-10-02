@@ -11,6 +11,9 @@ dotenv.config();
 // Connect Database
 connectDB();
 
+// Init middleware
+app.use(express.json({ extended: false }));
+
 app.get("/", (req, res) => res.send("API Running"));
 
 // Define Routes
