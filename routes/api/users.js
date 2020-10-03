@@ -2,10 +2,14 @@ const express = require("express");
 const router = express.Router();
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 const { check, validationResult } = require("express-validator");
 const normalize = require("normalize-url");
 
 const User = require("../../models/User");
+
+dotenv.config();
 
 // @route   POST api/users
 // @desc    Test route
@@ -64,9 +68,21 @@ router.post(
 
       await user.save();
 
-      // Return jsonwebtoken (so that in frontend when the user registers he also gets logged in right away)
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
 
-      res.send("User registered");
+      jwt.sign(
+        payload,
+        process.env.JWT_SECRET,
+        { expiresIn: 360000 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
