@@ -133,7 +133,7 @@ img {
   color: #333;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
-  /* border: none; */
+  border: none;
   border-radius: 2px;
   cursor: pointer;
   margin-right: 0.5rem;
