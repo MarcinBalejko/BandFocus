@@ -52,7 +52,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     const {
-      company,
+      band,
       location,
       website,
       bio,
@@ -61,13 +61,12 @@ router.post(
       youtube,
       twitter,
       instagram,
-      linkedin,
       facebook,
     } = req.body;
 
     const profileFields = {
       user: req.user.id,
-      company,
+      band,
       location,
       website: website === "" ? "" : normalize(website, { forceHttps: true }),
       bio,
@@ -78,7 +77,7 @@ router.post(
     };
 
     // Build social object and add to profileFields
-    const socialfields = { youtube, twitter, instagram, linkedin, facebook };
+    const socialfields = { youtube, twitter, instagram, facebook };
 
     for (const [key, value] of Object.entries(socialfields)) {
       if (value.length > 0)
@@ -163,7 +162,7 @@ router.put(
     auth,
     [
       check("title", "Title is required").not().isEmpty(),
-      check("company", "Company is required").not().isEmpty(),
+      check("band", "Band is required").not().isEmpty(),
       check("from", "From date is required and needs to be from the past")
         .not()
         .isEmpty()
@@ -176,19 +175,11 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const {
-      title,
-      company,
-      location,
-      from,
-      to,
-      current,
-      description,
-    } = req.body;
+    const { title, band, location, from, to, current, description } = req.body;
 
     const newExp = {
       title,
-      company,
+      band,
       location,
       from,
       to,
