@@ -41,7 +41,7 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
+  margin-top: 5rem;
   margin-bottom: 3rem;
 }
 
@@ -493,7 +493,8 @@ button {
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
-    margin-top: 8rem;
+    /* changed from 8!!!*/
+    margin-top: 5rem;
   }
 
   .hide-sm {
