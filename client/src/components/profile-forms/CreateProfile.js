@@ -54,7 +54,7 @@ const CreateProfile = (props) => {
               <option value="Other">Other</option>
             </select>
             <small className="form-text">
-              Give us an idea of where you are at in your career
+              Give us an idea of where you are at in your musical career
             </small>
           </div>
           <div className="form-group">
@@ -102,7 +102,8 @@ const CreateProfile = (props) => {
               onChange={(e) => onChange(e)}
             />
             <small className="form-text">
-              Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
+              Please use comma separated values (eg.
+              guitar,drums,vocals,bass,turntables)
             </small>
           </div>
           <div className="form-group">
