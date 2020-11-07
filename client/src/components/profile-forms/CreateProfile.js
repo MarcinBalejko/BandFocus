@@ -182,7 +182,9 @@ const CreateProfile = (props) => {
   );
 };
 
-CreateProfile.propTypes = {};
+CreateProfile.propTypes = {
+  profile: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   profile: state.profile,
