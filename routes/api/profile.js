@@ -161,7 +161,7 @@ router.put(
   [
     auth,
     [
-      check("title", "Title is required").not().isEmpty(),
+      check("role", "Role is required").not().isEmpty(),
       check("band", "Band is required").not().isEmpty(),
       check("from", "From date is required and needs to be from the past")
         .not()
@@ -175,10 +175,10 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { title, band, location, from, to, current, description } = req.body;
+    const { role, band, location, from, to, current, description } = req.body;
 
     const newExp = {
-      title,
+      role,
       band,
       location,
       from,

@@ -27,7 +27,7 @@ const ProfileSchema = new mongoose.Schema({
   },
   experience: [
     {
-      title: {
+      role: {
         type: String,
         required: true,
       },
