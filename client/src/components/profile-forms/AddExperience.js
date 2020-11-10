@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addExperience } from "../../actions/profile";
 
-const AddExperience = (props) => {
+const AddExperience = ({ addExperience, history }) => {
   const [formData, setFormData] = useState({
     band: "",
     role: "",
@@ -15,51 +15,102 @@ const AddExperience = (props) => {
     description: "",
   });
 
+  const [toDateDisabled, toggleDisabled] = useState(false);
+
+  const { band, role, location, from, to, current, description } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   return (
     <Fragment>
-      <h1 class="large text-primary">Add An Experience</h1>
-      <p class="lead">
-        <i class="fas fa-code-branch"></i> Add any bands that you have played in
-        in the past
+      <h1 className="large text-primary">Add An Experience</h1>
+      <p className="lead">
+        <i className="fas fa-code-branch"></i> Add any bands that you have
+        played in in the past
       </p>
       <small>* = required field</small>
-      <form class="form">
-        <div class="form-group">
+      <form
+        className="form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          addExperience(formData, history);
+        }}
+      >
+        <div className="form-group">
           <input
             type="text"
             placeholder="* Your role in the band"
             name="role"
+            value={role}
+            onChange={(e) => onChange(e)}
             required
           />
         </div>
-        <div class="form-group">
-          <input type="text" placeholder="* Band" name="band" required />
+        <div className="form-group">
+          <input
+            type="text"
+            placeholder="* Band"
+            name="band"
+            value={band}
+            onChange={(e) => onChange(e)}
+            required
+          />
         </div>
-        <div class="form-group">
-          <input type="text" placeholder="Location" name="location" />
+        <div className="form-group">
+          <input
+            type="text"
+            placeholder="Location"
+            name="location"
+            value={location}
+            onChange={(e) => onChange(e)}
+          />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <h4>From Date</h4>
-          <input type="date" name="from" />
+          <input
+            type="date"
+            name="from"
+            value={from}
+            onChange={(e) => onChange(e)}
+          />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <p>
-            <input type="checkbox" name="current" value="" /> Current Band
+            <input
+              type="checkbox"
+              name="current"
+              checked={current}
+              value={current}
+              onChange={() => {
+                setFormData({ ...formData, current: !current });
+                toggleDisabled(!toDateDisabled);
+              }}
+            />{" "}
+            Current Job
           </p>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <h4>To Date</h4>
-          <input type="date" name="to" />
+          <input
+            type="date"
+            name="to"
+            value={to}
+            onChange={(e) => onChange(e)}
+            disabled={toDateDisabled ? "disabled" : ""}
+          />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <textarea
             name="description"
             cols="30"
             rows="5"
             placeholder="Job Description"
+            value={description}
+            onChange={(e) => onChange(e)}
           ></textarea>
         </div>
-        <input type="submit" class="btn btn-primary my-1" />
+        <input type="submit" className="btn btn-primary my-1" />
         <Link className="btn btn-light my-1" to="/dashboard">
           Go Back
         </Link>

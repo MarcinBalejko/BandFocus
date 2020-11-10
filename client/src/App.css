@@ -8,6 +8,21 @@
   --success-color: #28a745;
 }
 
+/* Checkbox */
+input[type="checkbox"] {
+  filter: hue-rotate(885deg) brightness(1.1);
+}
+
+input[type="checkbox"]:checked:after {
+  content: "\2713";
+  color: white;
+  position: absolute;
+  line-height: 1rem;
+  font-size: 1rem;
+  padding-left: 0.15rem;
+}
+/* */
+
 * {
   box-sizing: border-box;
   margin: 0;
