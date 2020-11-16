@@ -78,7 +78,7 @@ const EditProfile = ({
               <option value="Looking for a band">Looking for a band</option>
               <option value="Member of a band">Member of a band</option>
               <option value="Creating a band">Creating a band</option>
-              <option value="Solo artistr">Solo artist</option>
+              <option value="Solo artist">Solo artist</option>
               <option value="Other">Other</option>
             </select>
             <small className="form-text">
