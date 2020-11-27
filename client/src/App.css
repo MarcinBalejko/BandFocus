@@ -192,6 +192,7 @@ img {
 .btn-dark,
 .bg-dark,
 .badge-dark,
+.btn-delete,
 .alert-dark {
   background: var(--dark-color);
   color: #fff;
