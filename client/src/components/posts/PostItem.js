@@ -46,7 +46,11 @@ const PostItem = ({
         )}
       </Link>
       {!auth.loading && user === auth.user._id && (
-        <button type="button" className="btn btn-delete">
+        <button
+          onClick={(e) => deletePost(_id)}
+          type="button"
+          className="btn btn-delete"
+        >
           <i className="fas fa-times"></i>
         </button>
       )}
