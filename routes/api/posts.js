@@ -101,7 +101,7 @@ router.delete("/:id", auth, async (req, res) => {
 });
 
 // @route    PUT api/posts/like/:id
-// @desc     Like a post
+// @desc     Add like to a post
 // @access   Private
 router.put("/like/:id", auth, async (req, res) => {
   try {
@@ -120,6 +120,33 @@ router.put("/like/:id", auth, async (req, res) => {
     await post.save();
 
     res.json(post.likes);
+  } catch (err) {
+    console.error(err.message);
+
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route    PUT api/posts/dislike/:id
+// @desc     Add dislike to a post
+// @access   Private
+router.put("/dislike/:id", auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    // Check if the post has already been liked
+    if (
+      post.dislikes.filter((dislike) => dislike.user.toString() === req.user.id)
+        .length > 0
+    ) {
+      return res.status(400).json({ msg: "Post already disliked" });
+    }
+
+    post.dislikes.unshift({ user: req.user.id });
+
+    await post.save();
+
+    res.json(post.dislikes);
   } catch (err) {
     console.error(err.message);
 
