@@ -7,6 +7,7 @@ import {
   addLike,
   addDislike,
   removeLike,
+  removeDislike,
   deletePost,
 } from "../../actions/post";
 
@@ -14,13 +15,29 @@ const PostItem = ({
   addLike,
   addDislike,
   removeLike,
+  removeDislike,
   deletePost,
   auth,
   post: { _id, text, name, avatar, user, likes, dislikes, comments, date },
 }) => {
-  const dislikeProcessing = (id) => {
-    removeLike(id);
-    addDislike(id);
+  const processLike = async (id) => {
+    try {
+      await addLike(id).then(() => {
+        removeDislike(id);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const processDislike = async (id) => {
+    try {
+      await addDislike(id).then(() => {
+        removeLike(id);
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -37,7 +54,7 @@ const PostItem = ({
           Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
         </p>
         <button
-          onClick={(e) => addLike(_id)}
+          onClick={(e) => processLike(_id)}
           type="button"
           className="btn btn-light"
         >
@@ -45,7 +62,7 @@ const PostItem = ({
           <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
         </button>
         <button
-          onClick={(e) => dislikeProcessing(_id)}
+          onClick={(e) => processDislike(_id)}
           type="button"
           className="btn btn-light"
         >
@@ -78,6 +95,7 @@ PostItem.propTypes = {
   addLike: PropTypes.func.isRequired,
   addDislike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
+  removeDislike: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired,
 };
 
@@ -89,5 +107,6 @@ export default connect(mapStateToProps, {
   addLike,
   addDislike,
   removeLike,
+  removeDislike,
   deletePost,
 })(PostItem);
