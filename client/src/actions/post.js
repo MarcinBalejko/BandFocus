@@ -4,6 +4,7 @@ import {
   GET_POSTS,
   POST_ERROR,
   UPDATE_LIKES,
+  UPDATE_DISLIKES,
   DELETE_POST,
   ADD_POST,
 } from "./types";
