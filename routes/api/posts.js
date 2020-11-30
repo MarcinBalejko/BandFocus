@@ -112,6 +112,7 @@ router.put("/like/:id", auth, async (req, res) => {
       post.likes.filter((like) => like.user.toString() === req.user.id).length >
       0
     ) {
+      // return;
       return res.status(400).json({ msg: "Post already liked" });
     } else {
       post.likes.unshift({ user: req.user.id });
@@ -139,6 +140,7 @@ router.put("/dislike/:id", auth, async (req, res) => {
       post.dislikes.filter((dislike) => dislike.user.toString() === req.user.id)
         .length > 0
     ) {
+      // return;
       return res.status(400).json({ msg: "Post already disliked" });
     } else {
       post.dislikes.unshift({ user: req.user.id });
