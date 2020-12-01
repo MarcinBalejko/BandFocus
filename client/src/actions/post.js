@@ -164,9 +164,10 @@ export const addComment = (postId, formData) => async (dispatch) => {
       "Content-Type": "application/json",
     },
   };
+
   try {
     const res = await axios.post(
-      `api/posts/comment/${postId}`,
+      `/api/posts/comment/${postId}`,
       formData,
       config
     );
@@ -188,7 +189,7 @@ export const addComment = (postId, formData) => async (dispatch) => {
 // Delete comment
 export const deleteComment = (postId, commentId) => async (dispatch) => {
   try {
-    const res = await axios.delete(`api/posts/comment/${postId}/${commentId}`);
+    await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
     dispatch({
       type: REMOVE_COMMENT,

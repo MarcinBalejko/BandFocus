@@ -80,7 +80,6 @@ export default function (state = initialState, action) {
         },
         loading: false,
       };
-
     case POST_ERROR:
       return {
         ...state,
