@@ -6,6 +6,7 @@ import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
+import ProfileDetails from "./ProfileDetails";
 import { getProfileById } from "../../actions/profile";
 
 const Profile = ({
@@ -50,6 +51,19 @@ const Profile = ({
                 </Fragment>
               ) : (
                 <h4>No experience credentials</h4>
+              )}
+            </div>
+
+            <div className="profile-edu bg-white p-2">
+              <h2 className="text-primary">Details</h2>
+              {profile.details.length > 0 ? (
+                <Fragment>
+                  {profile.details.map((details) => (
+                    <ProfileDetails key={details._id} details={details} />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>No further details</h4>
               )}
             </div>
           </div>

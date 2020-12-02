@@ -1,21 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Moment from "react-moment";
-import moment from "moment";
 
 const ProfileDetails = ({
-  Details: { favgenres, favbands, setup, uservideo },
+  details: { favgenres, favbands, setup, uservideo },
 }) => (
   <div>
-    {/* <h3 className="text-dark">{school}</h3> */}
-    <p>{/* <strong>Degree: </strong> {degree} */}</p>
-    <p>{/* <strong>Field Of Study: </strong> {fieldofstudy} */}</p>
-    <p>{/* <strong>Description: </strong> {description} */}</p>
+    <p>
+      <strong>Favourite genres: </strong>
+      {favgenres}
+    </p>
+    <p>
+      <strong>Favourite bands: </strong>
+      {favbands}
+    </p>
+    <p>
+      <strong>Current setup: </strong>
+      {setup}
+    </p>
+    <p>
+      <strong>Video: </strong>
+      {uservideo}
+    </p>
   </div>
 );
 
 ProfileDetails.propTypes = {
-  Details: PropTypes.object.isRequired,
+  details: PropTypes.object.isRequired,
 };
 
 export default ProfileDetails;

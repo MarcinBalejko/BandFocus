@@ -23,7 +23,7 @@ const AddDetails = ({ addDetails, history }) => {
     <Fragment>
       <h1 className="large text-primary">Add Your Details</h1>
       <p className="lead">
-        <i className="fas fa-code-branch" /> Tell everyone a little bit more
+        <i className="fas fa-info-circle" /> Tell everyone a little bit more
         about yourself
       </p>
       {/* <small>* = required field</small> */}
@@ -37,7 +37,7 @@ const AddDetails = ({ addDetails, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="* Favourite music genres"
+            placeholder="Favourite music genres"
             name="favgenres"
             value={favgenres}
             onChange={(e) => onChange(e)}
@@ -47,7 +47,7 @@ const AddDetails = ({ addDetails, history }) => {
           {/* change required? */}
           <input
             type="text"
-            placeholder="* Favourite bands"
+            placeholder="Favourite bands"
             name="favbands"
             value={favbands}
             onChange={(e) => onChange(e)}
