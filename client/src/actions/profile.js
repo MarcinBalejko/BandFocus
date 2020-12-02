@@ -132,8 +132,8 @@ export const addExperience = (formData, history) => async (dispatch) => {
   }
 };
 
-// Add Education
-export const addEducation = (formData, history) => async (dispatch) => {
+// Add Details
+export const addDetails = (formData, history) => async (dispatch) => {
   try {
     const config = {
       headers: {
@@ -141,14 +141,14 @@ export const addEducation = (formData, history) => async (dispatch) => {
       },
     };
 
-    const res = await axios.put("/api/profile/education", formData, config);
+    const res = await axios.put("/api/profile/details", formData, config);
 
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data,
     });
 
-    dispatch(setAlert("Education Added", "success"));
+    dispatch(setAlert("Details Added", "success"));
 
     history.push("/dashboard");
   } catch (err) {
@@ -184,17 +184,17 @@ export const deleteExperience = (id) => async (dispatch) => {
   }
 };
 
-// Delete education
-export const deleteEducation = (id) => async (dispatch) => {
+// Delete details
+export const deleteDetails = (id) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/profile/education/${id}`);
+    const res = await axios.delete(`/api/profile/details/${id}`);
 
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data,
     });
 
-    dispatch(setAlert("Education Removed", "success"));
+    dispatch(setAlert("Details Removed", "success"));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,

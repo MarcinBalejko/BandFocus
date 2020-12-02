@@ -222,21 +222,18 @@ router.delete("/experience/:exp_id", auth, async (req, res) => {
   }
 });
 
-// @route    PUT api/profile/education
-// @desc     Add profile education
+// @route    PUT api/profile/details
+// @desc     Add profile details
 // @access   Private
 router.put(
-  "/education",
+  "/details",
   [
     auth,
     [
-      check("school", "School is required").not().isEmpty(),
-      check("degree", "Degree is required").not().isEmpty(),
-      check("fieldofstudy", "Field of study is required").not().isEmpty(),
-      check("from", "From date is required and needs to be from the past")
-        .not()
-        .isEmpty()
-        .custom((value, { req }) => (req.body.to ? value < req.body.to : true)),
+      check("favgenres", "Favourite music genres are required").not().isEmpty(),
+      check("favbands", "Favourite bands are required").not().isEmpty(),
+      check("setup", "Setup is required").not().isEmpty(),
+      check("uservideo", "User video url is required").not().isEmpty(),
     ],
   ],
   async (req, res) => {
@@ -245,30 +242,24 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const {
-      school,
-      degree,
-      fieldofstudy,
-      from,
-      to,
-      current,
-      description,
-    } = req.body;
+    const { favgenres, favbands, setup, uservideo } = req.body;
 
-    const newEdu = {
-      school,
-      degree,
-      fieldofstudy,
-      from,
-      to,
-      current,
-      description,
+    const newDet = {
+      favgenres: Array.isArray(favgenres)
+        ? favgenres
+        : favgenres.split(",").map((genre) => " " + genre.trim()),
+      favbands: Array.isArray(favbands)
+        ? favbands
+        : favbands.split(",").map((band) => " " + band.trim()),
+      setup,
+      uservideo:
+        uservideo === "" ? "" : normalize(uservideo, { forceHttps: true }),
     };
 
     try {
       const profile = await Profile.findOne({ user: req.user.id });
 
-      profile.education.unshift(newEdu);
+      profile.details.unshift(newDet);
 
       await profile.save();
 
@@ -280,15 +271,15 @@ router.put(
   }
 );
 
-// @route    DELETE api/profile/education/:edu_id
-// @desc     Delete education from profile
+// @route    DELETE api/profile/details/:det_id
+// @desc     Delete details from profile
 // @access   Private
 
-router.delete("/education/:edu_id", auth, async (req, res) => {
+router.delete("/details/:det_id", auth, async (req, res) => {
   try {
     const foundProfile = await Profile.findOne({ user: req.user.id });
-    foundProfile.education = foundProfile.education.filter(
-      (edu) => edu._id.toString() !== req.params.edu_id
+    foundProfile.details = foundProfile.details.filter(
+      (det) => det._id.toString() !== req.params.det_id
     );
     await foundProfile.save();
     return res.status(200).json(foundProfile);
