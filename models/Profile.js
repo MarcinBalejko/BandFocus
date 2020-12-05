@@ -54,24 +54,20 @@ const ProfileSchema = new mongoose.Schema({
       },
     },
   ],
-  details: [
-    {
-      favgenres: {
-        type: [String],
-        required: true,
-      },
-      favbands: {
-        type: [String],
-        required: true,
-      },
-      setup: {
-        type: String,
-      },
-      uservideo: {
-        type: String,
-      },
+  details: {
+    favgenres: {
+      type: [String],
     },
-  ],
+    favbands: {
+      type: [String],
+    },
+    setup: {
+      type: String,
+    },
+    uservideo: {
+      type: String,
+    },
+  },
   social: {
     youtube: {
       type: String,
