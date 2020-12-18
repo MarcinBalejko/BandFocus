@@ -6,15 +6,19 @@ import { createProfile, getCurrentProfile } from "../../actions/profile";
 
 const initialState = {
   band: "",
-  website: "",
   location: "",
-  status: "",
-  skills: "",
+  website: "",
   bio: "",
-  twitter: "",
-  facebook: "",
+  skills: "",
+  status: "",
+  favgenres: "",
+  favbands: "",
+  setup: "",
+  uservideo: "",
   youtube: "",
+  twitter: "",
   instagram: "",
+  facebook: "",
 };
 
 const EditProfile = ({
@@ -43,15 +47,19 @@ const EditProfile = ({
 
   const {
     band,
-    website,
     location,
-    status,
-    skills,
+    website,
     bio,
-    twitter,
-    facebook,
+    skills,
+    status,
+    favgenres,
+    favbands,
+    setup,
+    uservideo,
     youtube,
+    twitter,
     instagram,
+    facebook,
   } = formData;
 
   const onChange = (e) =>

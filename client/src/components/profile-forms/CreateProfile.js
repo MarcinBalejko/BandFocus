@@ -7,30 +7,38 @@ import { createProfile } from "../../actions/profile";
 const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
     band: "",
+    location: "",
     website: "",
-    loaction: "",
-    status: "",
-    skills: "",
     bio: "",
-    twitter: "",
-    facebook: "",
+    skills: "",
+    status: "",
+    favgenres: "",
+    favbands: "",
+    setup: "",
+    uservideo: "",
     youtube: "",
+    twitter: "",
     instagram: "",
+    facebook: "",
   });
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
   const {
     band,
-    website,
     location,
-    status,
-    skills,
+    website,
     bio,
-    twitter,
-    facebook,
+    skills,
+    status,
+    favgenres,
+    favbands,
+    setup,
+    uservideo,
     youtube,
+    twitter,
     instagram,
+    facebook,
   } = formData;
 
   const onChange = (e) =>
