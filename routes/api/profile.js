@@ -58,6 +58,10 @@ router.post(
       bio,
       skills,
       status,
+      favgenres,
+      favbands,
+      setup,
+      uservideo,
       youtube,
       twitter,
       instagram,
@@ -74,6 +78,16 @@ router.post(
         ? skills
         : skills.split(",").map((skill) => " " + skill.trim()),
       status,
+      favgenres: Array.isArray(favgenres)
+        ? favgenres
+        : favgenres.split(",").map((favgenre) => " " + favgenre.trim()),
+      favbands: Array.isArray(favbands)
+        ? favbands
+        : favbands.split(",").map((favband) => " " + favband.trim()),
+      setup: Array.isArray(setup)
+        ? setup
+        : setup.split(",").map((instrument) => " " + instrument.trim()),
+      uservideo,
     };
 
     // Build social object and add to profileFields
@@ -214,73 +228,6 @@ router.delete("/experience/:exp_id", auth, async (req, res) => {
       (exp) => exp._id.toString() !== req.params.exp_id
     );
 
-    await foundProfile.save();
-    return res.status(200).json(foundProfile);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ msg: "Server error" });
-  }
-});
-
-// @route    PUT api/profile/details
-// @desc     Add profile details
-// @access   Private
-router.put(
-  "/details",
-  [
-    auth,
-    [
-      check("favgenres", "Favourite music genres are required").not().isEmpty(),
-      check("favbands", "Favourite bands are required").not().isEmpty(),
-      check("setup", "Setup is required").not().isEmpty(),
-      check("uservideo", "User video url is required").not().isEmpty(),
-    ],
-  ],
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    const { favgenres, favbands, setup, uservideo } = req.body;
-
-    const newDet = {
-      favgenres: Array.isArray(favgenres)
-        ? favgenres
-        : favgenres.split(",").map((genre) => " " + genre.trim()),
-      favbands: Array.isArray(favbands)
-        ? favbands
-        : favbands.split(",").map((band) => " " + band.trim()),
-      setup,
-      uservideo:
-        uservideo === "" ? "" : normalize(uservideo, { forceHttps: true }),
-    };
-
-    try {
-      const profile = await Profile.findOne({ user: req.user.id });
-
-      profile.details.unshift(newDet);
-
-      await profile.save();
-
-      res.json(profile);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server Error");
-    }
-  }
-);
-
-// @route    DELETE api/profile/details/:det_id
-// @desc     Delete details from profile
-// @access   Private
-
-router.delete("/details/:det_id", auth, async (req, res) => {
-  try {
-    const foundProfile = await Profile.findOne({ user: req.user.id });
-    foundProfile.details = foundProfile.details.filter(
-      (det) => det._id.toString() !== req.params.det_id
-    );
     await foundProfile.save();
     return res.status(200).json(foundProfile);
   } catch (error) {

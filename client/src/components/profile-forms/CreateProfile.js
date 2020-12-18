@@ -123,6 +123,51 @@ const CreateProfile = ({ createProfile, history }) => {
             <small className="form-text">Tell us a little about yourself</small>
           </div>
 
+          {/* DETAILS */}
+
+          <h1 className="large text-primary">Add Your Details</h1>
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Favourite music genres"
+              name="favgenres"
+              value={favgenres}
+              onChange={(e) => onChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            {/* change required? */}
+            <input
+              type="text"
+              placeholder="Favourite bands"
+              name="favbands"
+              value={favbands}
+              onChange={(e) => onChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Current instrument setup (what you play on)"
+              name="setup"
+              value={setup}
+              onChange={(e) => onChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="url"
+              placeholder="Your video url"
+              name="uservideo"
+              value={uservideo}
+              onChange={(e) => onChange(e)}
+            />
+            <small className="form-text">
+              Show everyone your musical skills by adding a youtube video url
+              above
+            </small>
+          </div>
+
           <div className="my-2">
             <button
               onClick={() => toggleSocialInputs(!displaySocialInputs)}

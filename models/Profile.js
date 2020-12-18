@@ -25,6 +25,18 @@ const ProfileSchema = new mongoose.Schema({
   bio: {
     type: String,
   },
+  favgenres: {
+    type: [String],
+  },
+  favbands: {
+    type: [String],
+  },
+  setup: {
+    type: [String],
+  },
+  uservideo: {
+    type: String,
+  },
   experience: [
     {
       role: {
@@ -54,20 +66,6 @@ const ProfileSchema = new mongoose.Schema({
       },
     },
   ],
-  details: {
-    favgenres: {
-      type: [String],
-    },
-    favbands: {
-      type: [String],
-    },
-    setup: {
-      type: String,
-    },
-    uservideo: {
-      type: String,
-    },
-  },
   social: {
     youtube: {
       type: String,
