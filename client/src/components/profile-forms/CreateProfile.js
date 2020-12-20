@@ -133,7 +133,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
           {/* DETAILS */}
 
-          <h1 className="large text-primary">Add Your Details</h1>
+          <h3 className="medium text-primary">Add More Details</h3>
           <div className="form-group">
             <input
               type="text"
@@ -171,8 +171,7 @@ const CreateProfile = ({ createProfile, history }) => {
               onChange={(e) => onChange(e)}
             />
             <small className="form-text">
-              Show everyone your musical skills by adding a youtube video url
-              above
+              Show everyone your skills by adding a youtube video url above
             </small>
           </div>
 

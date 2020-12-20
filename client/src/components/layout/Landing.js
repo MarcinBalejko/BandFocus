@@ -7,13 +7,14 @@ const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
+
   return (
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
           <h1 className="x-large">BandFocus</h1>
           <p className="lead">
-            Create a profile, share posts and reach out to other musicians
+            {/* Create a profile, share posts and reach out to other musicians */}
           </p>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">

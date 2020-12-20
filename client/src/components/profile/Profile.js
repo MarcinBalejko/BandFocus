@@ -6,6 +6,7 @@ import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
+import ProfileVideo from "./ProfileVideo";
 import { getProfileById } from "../../actions/profile";
 
 const Profile = ({
@@ -37,6 +38,15 @@ const Profile = ({
           <div className="profile-grid my-1">
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
+
+            {profile.uservideo ? (
+              <Fragment>
+                <ProfileVideo profile={profile} />
+              </Fragment>
+            ) : (
+              <h4>This user has not posted any video yet</h4>
+            )}
+
             <div className="profile-exp bg-white p-2">
               <h2 className="text-primary">Experience</h2>
               {profile.experience.length > 0 ? (
