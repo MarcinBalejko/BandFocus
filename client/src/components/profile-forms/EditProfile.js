@@ -19,6 +19,9 @@ const initialState = {
   twitter: "",
   instagram: "",
   facebook: "",
+  soundcloud: "",
+  spotify: "",
+  vimeo: "",
 };
 
 const EditProfile = ({
@@ -60,6 +63,9 @@ const EditProfile = ({
     twitter,
     instagram,
     facebook,
+    soundcloud,
+    spotify,
+    vimeo,
   } = formData;
 
   const onChange = (e) =>
@@ -192,7 +198,7 @@ const EditProfile = ({
               onChange={(e) => onChange(e)}
             />
             <small className="form-text">
-              Show everyone your skills by adding a youtube video url above
+              Show everyone your skills by adding a video url above
             </small>
           </div>
 
@@ -246,6 +252,36 @@ const EditProfile = ({
                   placeholder="Instagram URL"
                   name="instagram"
                   value={instagram}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+              <div className="form-group social-input">
+                <i className="fab fa-soundcloud fa-2x"></i>
+                <input
+                  type="text"
+                  placeholder="Soundcloud URL"
+                  name="soundcloud"
+                  value={soundcloud}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+              <div className="form-group social-input">
+                <i className="fab fa-spotify fa-2x"></i>
+                <input
+                  type="text"
+                  placeholder="Spotify URL"
+                  name="spotify"
+                  value={spotify}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+              <div className="form-group social-input">
+                <i className="fab fa-vimeo fa-2x"></i>
+                <input
+                  type="text"
+                  placeholder="Vimeo URL"
+                  name="vimeo"
+                  value={vimeo}
                   onChange={(e) => onChange(e)}
                 />
               </div>

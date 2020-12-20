@@ -79,6 +79,15 @@ const ProfileSchema = new mongoose.Schema({
     instagram: {
       type: String,
     },
+    soundcloud: {
+      type: String,
+    },
+    spotify: {
+      type: String,
+    },
+    vimeo: {
+      type: String,
+    },
   },
   date: {
     type: Date,

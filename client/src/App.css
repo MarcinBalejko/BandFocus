@@ -318,6 +318,16 @@ button {
   color: #0077b5;
 }
 
+.form .social-input i.fa-soundcloud {
+  color: var(--primary-color);
+}
+.form .social-input i.fa-spotify {
+  color: var(--success-color);
+}
+.form .social-input i.fa-vimeo {
+  color: #5ebdf0;
+}
+
 .table th,
 .table td {
   padding: 1rem;
@@ -417,7 +427,7 @@ button {
 
 .profile-top .icons a {
   color: #fff;
-  margin: 0 0.3rem;
+  margin: 0 0.5rem;
 }
 
 .profile-top .icons a:hover {

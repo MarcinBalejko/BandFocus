@@ -44,7 +44,7 @@ const Profile = ({
                 <ProfileVideo profile={profile} />
               </Fragment>
             ) : (
-              <h4>This user has not posted any video yet</h4>
+              <></>
             )}
 
             <div className="profile-exp bg-white p-2">

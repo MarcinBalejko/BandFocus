@@ -66,6 +66,9 @@ router.post(
       twitter,
       instagram,
       facebook,
+      soundcloud,
+      spotify,
+      vimeo,
     } = req.body;
 
     const profileFields = {
@@ -91,7 +94,15 @@ router.post(
     };
 
     // Build social object and add to profileFields
-    const socialfields = { youtube, twitter, instagram, facebook };
+    const socialfields = {
+      youtube,
+      twitter,
+      instagram,
+      facebook,
+      soundcloud,
+      spotify,
+      vimeo,
+    };
 
     for (const [key, value] of Object.entries(socialfields)) {
       if (value.length > 0)

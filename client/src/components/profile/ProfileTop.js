@@ -40,6 +40,21 @@ const ProfileTop = ({
             <i className="fab fa-youtube fa-2x" />
           </a>
         )}
+        {social && social.soundcloud && (
+          <a href={social.soundcloud} target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-soundcloud fa-2x" />
+          </a>
+        )}
+        {social && social.spotify && (
+          <a href={social.spotify} target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-spotify fa-2x" />
+          </a>
+        )}
+        {social && social.vimeo && (
+          <a href={social.vimeo} target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-vimeo fa-2x" />
+          </a>
+        )}
         {social && social.instagram && (
           <a href={social.instagram} target="_blank" rel="noopener noreferrer">
             <i className="fab fa-instagram fa-2x" />
