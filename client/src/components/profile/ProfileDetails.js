@@ -59,7 +59,7 @@ const ProfileTop = ({
             </div>
           </Fragment>
         ) : (
-          <></>
+          <h4>No details yet</h4>
         )}
       </td>
     </tr>

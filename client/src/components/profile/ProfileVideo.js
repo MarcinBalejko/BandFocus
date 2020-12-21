@@ -11,7 +11,7 @@ const ProfileAbout = ({
   const vidLink = uservideo.split("www.")[1];
   console.log(vidLink);
   return (
-    <div className="profile-about bg-light p-2">
+    <div className="profile-video bg-light p-2">
       {uservideo && (
         <Fragment>
           <h2 className="text-primary">{name.trim().split(" ")[0]}'s Video</h2>

@@ -40,16 +40,14 @@ const Profile = ({
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
 
-            {profile.uservideo ? (
-              <Fragment>
-                <ProfileVideo profile={profile} />
-              </Fragment>
-            ) : (
-              <></>
-            )}
+            <div className="user-video-container">
+              {profile.uservideo ? <ProfileVideo profile={profile} /> : <></>}
+            </div>
 
             {/* DETAILS */}
-            <ProfileDetails profile={profile} />
+            <div class="profile-details hide-sm">
+              <ProfileDetails profile={profile} />
+            </div>
 
             <div className="profile-exp bg-white p-2">
               <h2 className="text-primary">Experience</h2>

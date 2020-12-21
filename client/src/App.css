@@ -417,6 +417,10 @@ button {
   text-align: center;
 }
 
+.table-details h4 {
+  opacity: 0.6;
+}
+
 .table-details-grid {
   grid-column: 1 / span 2;
   display: grid;
@@ -487,13 +491,22 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 10vh;
+  word-wrap: break-word;
   text-align: center;
 }
 
-.profile-video {
+.user-video-container {
   grid-area: video;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
+}
+
+.profile-video {
+  /* margin-bottom: 1rem; */
+  padding-bottom: 2rem;
+}
+
+.profile-video h2 {
+  text-align: center;
 }
 
 .profile-details {
@@ -594,8 +607,7 @@ button {
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
-    /* changed from 8!!!*/
-    margin-top: 5rem;
+    margin-top: 7rem;
   }
 
   .hide-sm {
@@ -657,11 +669,20 @@ button {
       "top"
       "about"
       "exp"
-      "edu"
-      "github";
+      "details"
+      "video";
+  }
+
+  .user-video-container {
+    max-width: 300px;
+  }
+
+  .profile-details {
+    max-width: 300px;
   }
 
   .profile-about .skills {
+    height: auto;
     flex-direction: column;
   }
 
