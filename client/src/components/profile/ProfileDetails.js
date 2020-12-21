@@ -9,57 +9,87 @@ const ProfileTop = ({
     user: { name },
   },
 }) => {
+  const details = (
+    <tr>
+      <td>
+        {favbands.length > 0 ? (
+          <Fragment>
+            <div className="fav-bands-container">
+              {favbands.map((band, index) =>
+                band === favbands[favbands.length - 1] ? (
+                  <span key={index}>{band}</span>
+                ) : (
+                  <span key={index}>{band},</span>
+                )
+              )}
+            </div>
+          </Fragment>
+        ) : (
+          <h4>No details yet</h4>
+        )}
+      </td>
+      <td>
+        {favgenres.length > 0 ? (
+          <Fragment>
+            <div className="fav-genres-container">
+              {favgenres.map((genre, index) =>
+                genre === favgenres[favgenres.length - 1] ? (
+                  <span key={index}>{genre}</span>
+                ) : (
+                  <span key={index}>{genre},</span>
+                )
+              )}
+            </div>
+          </Fragment>
+        ) : (
+          <h4>No details yet</h4>
+        )}
+      </td>
+      <td>
+        {setup.length > 0 ? (
+          <Fragment>
+            <div className="current-setup-container">
+              {setup.map((set, index) =>
+                set === setup[setup.length - 1] ? (
+                  <span key={index}>{set}</span>
+                ) : (
+                  <span key={index}>{set},</span>
+                )
+              )}
+            </div>
+          </Fragment>
+        ) : (
+          <></>
+        )}
+      </td>
+    </tr>
+  );
   return (
-    <div className="profile-details bg-white p-2">
-      <h2 className="text-primary">Details</h2>
-      {favbands.length > 0 ? (
-        <Fragment>
-          <div className="fav-bands-container">
-            <p>{name.trim().split(" ")[0]}'s favourite bands:</p>
-            {favbands.map((favband, index) => (
-              <div key={index} className="p-1">
-                <i className="fas fa-thumbs-up text-primary" /> {favband}
-              </div>
-            ))}
-          </div>
-        </Fragment>
-      ) : (
-        <></>
-      )}
-      <div className="line"></div>
-
-      {favgenres.length > 0 ? (
-        <Fragment>
-          <p>{name.trim().split(" ")[0]}'s favourite music genres:</p>
-          <div className="fav-genres-container">
-            {favgenres.map((genre, index) => (
-              <div key={index} className="p-1">
-                <i className="fab fa-itunes-note text-primary" /> {genre}
-              </div>
-            ))}
-          </div>
-        </Fragment>
-      ) : (
-        <></>
-      )}
-
-      <div className="line"></div>
-
-      {favbands.length > 0 ? (
-        <Fragment>
-          <p>{name.trim().split(" ")[0]}'s current setup:</p>
-          <div className="current-setup-container">
-            {setup.map((set, index) => (
-              <div key={index} className="p-1">
-                <i className="fas fa-sliders-h text-primary" /> {set}
-              </div>
-            ))}
-          </div>
-        </Fragment>
-      ) : (
-        <></>
-      )}
-    </div>
+    <Fragment>
+      <div className="table-details-grid">
+        <h2 className="my-2">{name.trim().split(" ")[0]}'s Details</h2>
+        <table className="table table-details">
+          <thead>
+            <tr>
+              <th>
+                Favourite Bands &nbsp;
+                <i className="fas fa-thumbs-up text-primary" />
+              </th>
+              <th>
+                Favourite Genres &nbsp;
+                <i className="fab fa-itunes-note text-primary" />
+              </th>
+              <th>
+                Current Setup &nbsp;
+                <i className="fas fa-sliders-h text-primary" />
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>{details}</tbody>
+        </table>
+      </div>
+    </Fragment>
   );
 };
 

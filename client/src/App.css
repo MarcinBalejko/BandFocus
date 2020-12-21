@@ -413,6 +413,49 @@ button {
   grid-gap: 1rem;
 }
 
+.table-details th {
+  text-align: center;
+}
+
+.table-details-grid {
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 2;
+}
+
+.table-details-grid h2 {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.fav-bands-container {
+  max-width: 30vw;
+  margin: 0;
+
+  word-wrap: break-word;
+}
+
+.fav-bands-container,
+.fav-genres-container,
+.current-setup-container {
+  text-transform: capitalize;
+}
+
+.fav-genres-container {
+  max-width: 30vw;
+  margin: 0;
+
+  word-wrap: break-word;
+}
+
+.current-setup-container {
+  max-width: 30vw;
+  margin: 0;
+
+  word-wrap: break-word;
+}
+
 .profile-top {
   grid-area: top;
   display: flex;
