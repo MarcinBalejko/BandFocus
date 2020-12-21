@@ -183,7 +183,7 @@ const EditProfile = ({
           <div className="form-group">
             <input
               type="text"
-              placeholder="Current instrument setup (what you play on)"
+              placeholder="Current instrument setup"
               name="setup"
               value={setup}
               onChange={(e) => onChange(e)}

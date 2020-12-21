@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
+import ProfileDetails from "./ProfileDetails";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileVideo from "./ProfileVideo";
@@ -11,7 +12,7 @@ import { getProfileById } from "../../actions/profile";
 
 const Profile = ({
   getProfileById,
-  profile: { profile, loading },
+  profile: { profile, loading, favbands, favgenres, setup },
   auth,
   match,
 }) => {
@@ -46,6 +47,9 @@ const Profile = ({
             ) : (
               <></>
             )}
+
+            {/* DETAILS */}
+            <ProfileDetails profile={profile} />
 
             <div className="profile-exp bg-white p-2">
               <h2 className="text-primary">Experience</h2>

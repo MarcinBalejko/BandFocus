@@ -407,6 +407,7 @@ button {
     "top top"
     "about about"
     "video video"
+    "details details"
     "github github"
     "exp exp";
   grid-gap: 1rem;
@@ -448,9 +449,12 @@ button {
 
 .profile-video {
   grid-area: video;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
-.profile-video {
+.profile-details {
+  grid-area: details;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
 }
