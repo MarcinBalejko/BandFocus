@@ -20,6 +20,9 @@ const CreateProfile = ({ createProfile, history }) => {
     twitter: "",
     instagram: "",
     facebook: "",
+    soundcloud: "",
+    spotify: "",
+    vimeo: "",
   });
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
@@ -39,6 +42,9 @@ const CreateProfile = ({ createProfile, history }) => {
     twitter,
     instagram,
     facebook,
+    soundcloud,
+    spotify,
+    vimeo,
   } = formData;
 
   const onChange = (e) =>
@@ -225,6 +231,36 @@ const CreateProfile = ({ createProfile, history }) => {
                   placeholder="Instagram URL"
                   name="instagram"
                   value={instagram}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+              <div className="form-group social-input">
+                <i className="fab fa-soundcloud fa-2x"></i>
+                <input
+                  type="text"
+                  placeholder="Soundcloud URL"
+                  name="soundcloud"
+                  value={soundcloud}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+              <div className="form-group social-input">
+                <i className="fab fa-spotify fa-2x"></i>
+                <input
+                  type="text"
+                  placeholder="Spotify URL"
+                  name="spotify"
+                  value={spotify}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+              <div className="form-group social-input">
+                <i className="fab fa-vimeo fa-2x"></i>
+                <input
+                  type="text"
+                  placeholder="Vimeo URL"
+                  name="vimeo"
+                  value={vimeo}
                   onChange={(e) => onChange(e)}
                 />
               </div>
