@@ -8,17 +8,20 @@ const ProfileAbout = ({
     uservideo,
   },
 }) => {
-  const vidLink = uservideo.split("www.")[1];
-  console.log(vidLink);
+  // const vidLink = uservideo.split("www.")[1];
+  // console.log(vidLink);
   return (
     <div className="profile-video bg-light p-2">
       {uservideo && (
         <Fragment>
-          <h2 className="text-primary">{name.trim().split(" ")[0]}'s Video</h2>
+          <h2 className="text-primary">
+            {name.split(" ").length > 1 ? name.trim().split(" ")[0] : name}'s
+            Video
+          </h2>
           <div className="line"></div>
           <div id="video-frame">
             <ReactPlayer
-              url={vidLink}
+              url={uservideo}
               controls={true}
               config={{
                 youtube: {

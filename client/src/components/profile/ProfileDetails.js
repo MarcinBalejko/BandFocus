@@ -67,7 +67,10 @@ const ProfileTop = ({
   return (
     <Fragment>
       <div className="table-details-grid">
-        <h2 className="my-2">{name.trim().split(" ")[0]}'s Details</h2>
+        <h2 className="my-2">
+          {name.split(" ").length > 1 ? name.trim().split(" ")[0] : name}'s
+          Details
+        </h2>
         <table className="table table-details">
           <thead>
             <tr>
