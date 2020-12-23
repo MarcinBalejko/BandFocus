@@ -8,8 +8,6 @@ const ProfileAbout = ({
     uservideo,
   },
 }) => {
-  // const vidLink = uservideo.split("www.")[1];
-  // console.log(vidLink);
   return (
     <div className="profile-video bg-light p-2">
       {uservideo && (
