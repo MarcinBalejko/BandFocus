@@ -12,7 +12,7 @@ const ProfileAbout = ({
     {bio && (
       <Fragment>
         <h2 className="text-primary">
-          {name.split(" ").length > 1 ? name.trim().split(" ")[0] : name}'s Bio
+          {name ? name.trim().split(" ")[0] : name}'s Bio
         </h2>
         <p>{bio}</p>
         <div className="line" />

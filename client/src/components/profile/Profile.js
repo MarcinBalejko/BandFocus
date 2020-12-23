@@ -12,7 +12,7 @@ import { getProfileById } from "../../actions/profile";
 
 const Profile = ({
   getProfileById,
-  profile: { profile, loading, favbands, favgenres, setup },
+  profile: { profile, loading },
   auth,
   match,
 }) => {
