@@ -27,9 +27,25 @@ const Dashboard = ({
       </p>
       {profile !== null ? (
         <Fragment>
+          <div className="dash-img-container p-1">
+            {user ? (
+              <img className="round-img my" src={user.avatar} alt="" />
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="line"></div>
           <DashboardActions />
+          {profile.bio ? (
+            <div className="dash-bio my-2">
+              <h2 className="my-1">Bio</h2>
+              <p className="dash-bio-p">{profile.bio}</p>
+            </div>
+          ) : (
+            ""
+          )}
+
           <Experience experience={profile.experience} />
-          {/* <Details details={profile.details} /> */}
 
           <div className="my-2">
             <button className="btn btn-danger" onClick={() => deleteAccount()}>

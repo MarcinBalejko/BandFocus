@@ -22,7 +22,6 @@ input[type="checkbox"]:checked:after {
   font-size: 1rem;
   padding-left: 0.15rem;
 }
-/* */
 
 * {
   box-sizing: border-box;
@@ -501,7 +500,6 @@ button {
 }
 
 .profile-video {
-  /* margin-bottom: 1rem; */
   padding-bottom: 2rem;
 }
 
@@ -604,6 +602,19 @@ button {
   margin-bottom: 0.5rem;
 }
 
+/* Dashboard additional styles  */
+
+.dash-img-container img {
+  width: 200px;
+  margin: auto;
+}
+
+.dash-bio-p {
+  display: inline-block;
+  max-width: 50%;
+  text-align: justify;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
@@ -644,6 +655,11 @@ button {
 
   .navbar .welcome {
     display: none;
+  }
+
+  /* Dashboard */
+  .dash-bio-p {
+    max-width: 100%;
   }
 
   /* Profiles Page */
