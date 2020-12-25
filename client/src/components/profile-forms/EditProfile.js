@@ -169,6 +169,9 @@ const EditProfile = ({
               value={favgenres}
               onChange={(e) => onChange(e)}
             />
+            <small className="form-text">
+              Name your favourite music genres (please separate with comma)
+            </small>
           </div>
           <div className="form-group">
             {/* change required? */}
@@ -179,15 +182,21 @@ const EditProfile = ({
               value={favbands}
               onChange={(e) => onChange(e)}
             />
+            <small className="form-text">
+              Name your favourite bands (please separate with comma)
+            </small>
           </div>
           <div className="form-group">
             <input
               type="text"
-              placeholder="Current instrument setup"
+              placeholder="Instrument setup"
               name="setup"
               value={setup}
               onChange={(e) => onChange(e)}
             />
+            <small className="form-text">
+              Your current instrument setup (please separate with comma)
+            </small>
           </div>
           <div className="form-group">
             <input

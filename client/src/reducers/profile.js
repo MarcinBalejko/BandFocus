@@ -13,8 +13,6 @@ const initialState = {
   error: {},
 };
 
-//^^^repos: []
-
 export default function (state = initialState, action) {
   const { type, payload } = action;
 
