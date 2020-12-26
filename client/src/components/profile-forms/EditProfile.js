@@ -79,7 +79,7 @@ const EditProfile = ({
   return (
     <Fragment>
       <section className="container">
-        <h1 className="large text-primary">Create Your Profile</h1>
+        <h1 className="large text-primary">Edit Your Profile</h1>
         <p className="lead">
           <i className="fas fa-user"></i> Let's get some information to make
           your profile stand out
@@ -157,9 +157,6 @@ const EditProfile = ({
             ></textarea>
             <small className="form-text">Tell us a little about yourself</small>
           </div>
-
-          {/* DETAILS */}
-
           <h3 className="medium text-primary">Add More Details</h3>
           <div className="form-group">
             <input
@@ -174,7 +171,6 @@ const EditProfile = ({
             </small>
           </div>
           <div className="form-group">
-            {/* change required? */}
             <input
               type="text"
               placeholder="Favourite bands"

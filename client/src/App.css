@@ -710,6 +710,7 @@ button {
 
   .post {
     grid-template-columns: 1fr;
+    row-gap: 0;
   }
   .post a,
   .post button {
