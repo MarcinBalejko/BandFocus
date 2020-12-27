@@ -1,6 +1,6 @@
 # BandFocus
 
-Building a small social network for musicians with MERN stack (Node.js, Express, React, Redux & MongoDB).
+Building a small social network for musicians with MERN stack (Node.js, Express, React & MongoDB). This application additionally uses technologies such as Redux, Axios and also JSON Web Token (JWT) for authentication.
 
 ## **Details**
 
@@ -13,6 +13,12 @@ Moreover, each user will be able to make posts and leave comments on other peopl
 npm install
 npm run dev
 ```
+
+## **Heroku**
+
+This application has been deployed to Heroku:
+
+https://bandfocus.herokuapp.com/
 
 ---
 
