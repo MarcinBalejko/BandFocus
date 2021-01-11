@@ -52,27 +52,6 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// // @route   GET api/posts
-// // @desc    Get post by id
-// // @access  Private
-// router.get("/:id", auth, async (req, res) => {
-//   try {
-//     const post = await Post.findById(req.params.id);
-
-//     if (!post) {
-//       return res.status(404).json({ msg: "Post not found" });
-//     }
-
-//     res.json(post);
-//   } catch (err) {
-//     console.error(err.message);
-//     if (err.kind === "ObjectId") {
-//       return res.status(404).json({ msg: "Post not found" });
-//     }
-//     res.status(500).send("Server Error");
-//   }
-// });
-
 // @route    GET api/posts/:id
 // @desc     Get post by ID
 // @access   Private
@@ -132,7 +111,6 @@ router.put("/like/:id", auth, async (req, res) => {
       post.likes.filter((like) => like.user.toString() === req.user.id).length >
       0
     ) {
-      // return;
       return res.status(400).json({ msg: "Post already liked" });
     } else {
       post.likes.unshift({ user: req.user.id });
@@ -160,7 +138,6 @@ router.put("/dislike/:id", auth, async (req, res) => {
       post.dislikes.filter((dislike) => dislike.user.toString() === req.user.id)
         .length > 0
     ) {
-      // return;
       return res.status(400).json({ msg: "Post already disliked" });
     } else {
       post.dislikes.unshift({ user: req.user.id });
@@ -188,7 +165,6 @@ router.put("/remlike/:id", auth, async (req, res) => {
       post.likes.filter((like) => like.user.toString() === req.user.id)
         .length === 0
     ) {
-      // return;
       return res.status(400).json({ msg: "Post has not yet been liked" });
     } else {
       // Get remove index
@@ -221,7 +197,6 @@ router.put("/remdislike/:id", auth, async (req, res) => {
       post.dislikes.filter((dislike) => dislike.user.toString() === req.user.id)
         .length === 0
     ) {
-      // return;
       return res.status(400).json({ msg: "Post has not yet been disliked" });
     } else {
       // Get remove index
